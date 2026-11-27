@@ -89,6 +89,7 @@ public class CommitDetailActivity extends BaseActivity<CommitDetailPresenter>
     @BindView(R.id.changed_files_count) TextView changedFileCount;
     @BindView(R.id.additions_count) TextView addtionsCount;
     @BindView(R.id.deletions_count) TextView deletionsCount;
+    @BindView(R.id.toolbar_title) TextView toolbarTitle;
 
     @BindView(R.id.loader) ProgressBar loader;
     @BindView(R.id.comment_bn) FloatingActionButton commentBn;
@@ -106,7 +107,9 @@ public class CommitDetailActivity extends BaseActivity<CommitDetailPresenter>
     protected void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
         setToolbarBackEnable();
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         setToolbarTitle(getString(R.string.commit));
+        toolbarTitle.setText(getString(R.string.commit));
         commentBn.setVisibility(View.GONE);
     }
 
@@ -118,6 +121,7 @@ public class CommitDetailActivity extends BaseActivity<CommitDetailPresenter>
     @Override
     public void showCommit(RepoCommit commit) {
         setToolbarTitle(getString(R.string.commit).concat(" ").concat(commit.getShortSha()));
+        toolbarTitle.setText(getString(R.string.commit).concat(" ").concat(commit.getShortSha()));
         if (commit.getAuthor() != null) {
             GlideApp.with(getActivity())
                     .load(commit.getAuthor().getAvatarUrl())
@@ -235,4 +239,4 @@ public class CommitDetailActivity extends BaseActivity<CommitDetailPresenter>
         if (commitFilesFragment != null) commitFilesFragment.scrollToTop();
     }
 
-}
+                        }
