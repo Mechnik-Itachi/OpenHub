@@ -176,7 +176,6 @@ public class UserListPresenter extends BasePagerPresenter<IUserListContract.View
         if(!StringUtils.isBlankList(users)){
             mView.showErrorToast(getErrorTip(error));
         } else if(error instanceof HttpPageNoFoundError){
-            mView.showErrorToast("404: " + type + " " + user + "/" + repo);
             mView.showUsers(new ArrayList<User>());
         } else {
             mView.showLoadError(getErrorTip(error));
