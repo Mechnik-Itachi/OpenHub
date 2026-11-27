@@ -23,11 +23,7 @@
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed|snap"
-            app:collapsedTitleGravity="start"
-            app:expandedTitleGravity="top"
-            app:expandedTitleMarginStart="96dp"
-            app:expandedTitleMarginTop="60dp"
-            app:expandedTitleTextAppearance="@style/Toolbar.Expand.TitleText"
+            app:titleEnabled="false"
             android:paddingTop="0dp"
             android:paddingBottom="@dimen/spacing_normal">
             
@@ -37,7 +33,7 @@
                 android:layout_gravity="start|top"
                 android:paddingStart="@dimen/spacing_normal"
                 android:paddingEnd="@dimen/spacing_normal"
-                android:layout_marginTop="86dp">
+                android:layout_marginTop="104dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/user_avatar"
@@ -52,7 +48,7 @@
                     android:orientation="horizontal"
                     android:layout_toEndOf="@+id/user_avatar"
                     android:layout_marginStart="@dimen/spacing_normal"
-                    android:layout_marginTop="@dimen/spacing_x_large"
+                    android:layout_marginTop="0dp"
                     android:gravity="center_vertical">
 
                     <android.support.v7.widget.AppCompatImageView
@@ -91,8 +87,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
+                app:contentInsetStartWithNavigation="0dp"
                 app:layout_collapseMode="pin"
-                app:popupTheme="?popup_theme"/>
+                app:popupTheme="?popup_theme">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:textSize="@dimen/text_x_large"
+                    android:textAppearance="@style/Toolbar.TitleText"/>
+
+            </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
