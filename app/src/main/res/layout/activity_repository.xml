@@ -27,8 +27,8 @@
             app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
             app:collapsedTitleGravity="start"
             app:expandedTitleGravity="top"
-            app:expandedTitleMarginStart="@dimen/spacing_x_large"
-            app:expandedTitleMarginTop="60dp"
+            app:expandedTitleMarginStart="72dp"
+            app:expandedTitleMarginTop="12dp"
             app:expandedTitleTextAppearance="@style/Toolbar.Expand.TitleText"
             android:paddingTop="0dp">
 
