@@ -14,6 +14,11 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://jitpack.io" }
+        // Зеркала закрытого jcenter: в них остались старые библиотеки вроде dataautoaccess
+        maven { url "https://maven.aliyun.com/repository/jcenter" }
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://repo.huaweicloud.com/repository/maven/" }
         jcenter()
     }
 }
