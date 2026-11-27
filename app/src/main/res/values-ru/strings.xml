@@ -85,8 +85,8 @@
     <string name="stargazers">Звёзды</string>
     <string name="forks">Форки</string>
     <string name="watchers">Наблюдатели</string>
-    <string name="readme">ПРОЧИТАЙМЕНЯ</string>
-    <string name="no_readme">ПРОЧИТАЙМЕНЯ отсутствует</string>
+    <string name="readme">README.md</string>
+    <string name="no_readme">README.md отсутствует</string>
     <string name="warning_dialog_tile">Предупреждение</string>
     <string name="cancel">Отменить</string>
     <string name="close">Закрыть</string>
@@ -124,10 +124,10 @@
     <string name="activity">Активность</string>
 
     <string name="just_now">только что</string>
-    <string name="seconds_ago">несколько секунд назад</string>
-    <string name="minutes_ago">несколько минут назад</string>
-    <string name="hours_ago">несколько часов назад</string>
-    <string name="days_ago">несколько дней назад</string>
+    <string name="seconds_ago">секунд назад</string>
+    <string name="minutes_ago">минут назад</string>
+    <string name="hours_ago">часов назад</string>
+    <string name="days_ago">дней назад</string>
 
     <string name="search">Поиск</string>
     <string name="sort">Сортировать</string>
@@ -438,7 +438,7 @@
 
     <string name="add_account">Добавить аккаунт</string>
     <string name="delete_label_warning">Подтвердить удаление данной этикетки?</string>
-    <string name="actions">Actions</string>
+    <string name="actions">Действия</string>
     <string name="no_workflow_runs">Нет запусков</string>
     <string name="workflow_status_success">Успешно</string>
     <string name="workflow_status_failure">Ошибка</string>
