@@ -184,6 +184,7 @@ public class RepoInfoFragment extends BaseFragment<RepoInfoPresenter>
                 break;
             case R.id.stargazers_lay:
                 if(mPresenter.getRepository().getStargazersCount() == 0) return;
+                if(!canViewStargazers()) return;
                 UserListActivity.show(getActivity(), UserListFragment.UserListType.STARGAZERS,
                         mPresenter.getRepository().getOwner().getLogin(),
                         mPresenter.getRepository().getName());
@@ -196,6 +197,7 @@ public class RepoInfoFragment extends BaseFragment<RepoInfoPresenter>
                 break;
             case R.id.watchers_lay:
                 if(mPresenter.getRepository().getSubscribersCount() == 0) return;
+                if(!canViewStargazers()) return;
                 UserListActivity.show(getActivity(), UserListFragment.UserListType.WATCHERS,
                         mPresenter.getRepository().getOwner().getLogin(),
                         mPresenter.getRepository().getName());
