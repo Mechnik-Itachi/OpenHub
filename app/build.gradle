@@ -1,13 +1,23 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.novoda.build-properties'
 
-buildProperties {
-    getPublic {
-        file rootProject.file('public.properties')
+// Замена плагина com.novoda.build-properties (он жил только на закрытом jcenter):
+// читаем значения сначала из local.properties, потом из public.properties
+def loadProps = { String path ->
+    def props = new Properties()
+    def f = rootProject.file(path)
+    if (f.exists()) {
+        f.withInputStream { props.load(it) }
     }
-    getLocal {
-        file rootProject.file('local.properties')
+    return props
+}
+def localProps = loadProps('local.properties')
+def publicProps = loadProps('public.properties')
+def prop = { String key ->
+    def value = localProps.getProperty(key) ?: publicProps.getProperty(key)
+    if (value == null) {
+        throw new GradleException("Property '${key}' not found in local.properties or public.properties")
     }
+    return value.trim()
 }
 
 android {
@@ -23,10 +33,10 @@ android {
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled false
 
-        buildConfigField "String", "OPENHUB_CLIENT_ID", (buildProperties.getLocal['openhub_client_id'] | buildProperties.getPublic['openhub_client_id']).string
-        buildConfigField "String", "OPENHUB_CLIENT_SECRET", (buildProperties.getLocal['openhub_client_secret'] | buildProperties.getPublic['openhub_client_secret']).string
-        buildConfigField "String", "BUGLY_ID", (buildProperties.getLocal['bugly_appid'] | buildProperties.getPublic['bugly_appid']).string
-        buildConfigField "String", "DEBUG_BUGLY_ID", (buildProperties.getLocal['debug_bugly_appid'] | buildProperties.getPublic['debug_bugly_appid']).string
+        buildConfigField "String", "OPENHUB_CLIENT_ID", prop('openhub_client_id')
+        buildConfigField "String", "OPENHUB_CLIENT_SECRET", prop('openhub_client_secret')
+        buildConfigField "String", "BUGLY_ID", prop('bugly_appid')
+        buildConfigField "String", "DEBUG_BUGLY_ID", prop('debug_bugly_appid')
 
         ndk {
 //            abiFilters 'armeabi', 'armeabi-v7a', 'x86'
@@ -36,10 +46,10 @@ android {
 
     signingConfigs  {
         release {
-            storeFile(file((buildProperties.getLocal['sign_path'] | buildProperties.getPublic['sign_path']).string))
-            storePassword((buildProperties.getLocal['store_password'] | buildProperties.getPublic['store_password']).string)
-            keyAlias((buildProperties.getLocal['key_alias'] | buildProperties.getPublic['key_alias']).string)
-            keyPassword((buildProperties.getLocal['key_password'] | buildProperties.getPublic['key_password']).string)
+            storeFile(file(prop('sign_path')))
+            storePassword(prop('store_password'))
+            keyAlias(prop('key_alias'))
+            keyPassword(prop('key_password'))
         }
     }
 
@@ -88,8 +98,10 @@ android {
 }
 
 repositories {
-    maven { url "https://jitpack.io" }
     google()
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+    jcenter()
     flatDir {
         dirs 'libs' //aar
     }
