@@ -23,7 +23,7 @@
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-            app:titleEnabled="false
+            app:titleEnabled="false"
             android:paddingTop="0dp"
             android:paddingBottom="@dimen/spacing_normal">
             
