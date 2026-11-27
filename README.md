@@ -5,9 +5,6 @@ English | [中文](/README-cn.md)
 
 An **open-source** GitHub Android client app, faster and concise.
 
-[![Google Play](https://raw.githubusercontent.com/ThirtyDegreesRay/OpenHub/master/art/google_play.png?raw=true)](https://play.google.com/store/apps/details?id=com.thirtydegreesray.openhub)
-[![Coolapk](https://raw.githubusercontent.com/ThirtyDegreesRay/OpenHub/master/art/coolapk.png?raw=true)](https://www.coolapk.com/apk/com.thirtydegreesray.openhub)
-
 ## Features
 
 ### App
