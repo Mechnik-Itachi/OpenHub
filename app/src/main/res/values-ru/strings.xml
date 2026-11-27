@@ -438,5 +438,13 @@
 
     <string name="add_account">Добавить аккаунт</string>
     <string name="delete_label_warning">Подтвердить удаление данной этикетки?</string>
-
+    <string name="actions">Actions</string>
+    <string name="no_workflow_runs">Нет запусков</string>
+    <string name="workflow_status_success">Успешно</string>
+    <string name="workflow_status_failure">Ошибка</string>
+    <string name="workflow_status_cancelled">Отменено</string>
+    <string name="workflow_status_skipped">Пропущено</string>
+    <string name="workflow_status_in_progress">Выполняется</string>
+    <string name="workflow_status_queued">В очереди</string>
+    
 </resources>
