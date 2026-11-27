@@ -4,4 +4,5 @@
 <resources>
     <item name="position_tag" type="id"/>
     <item name="nav_profile" type="id"/>
+    <item name="nav_notifications" type="id"/>
 </resources>
