@@ -13,7 +13,7 @@
     <string name="profile">Профиль</string>
     <string name="notifications">Уведомления</string>
     <string name="news">Новости</string>
-    <string name="issues">Проблемы</string>
+    <string name="issues">Задачи</string>
 
     <string name="repositories">Репозитории</string>
     <string name="owned">Ваши</string>
@@ -58,8 +58,8 @@
     <string name="repository">Репозиторий</string>
     <string name="info">Информация</string>
     <string name="files">Файлы</string>
-    <string name="commits">Правки</string>
-    <string name="commit">Правка</string>
+    <string name="commits">Коммиты</string>
+    <string name="commit">Коммит</string>
 
     <string name="star">Добавить в избранное</string>
     <string name="unstar">Удалить из избранного</string>
@@ -73,17 +73,17 @@
     <string name="watched">В списке наблюдения</string>
     <string name="unwatch">Удалить из списка наблюдения</string>
     <string name="unwatched">Удалено из списка наблюдения</string>
-    <string name="fork">Создать ответвление</string>
-    <string name="fork_tag">Создать ответвление</string>
-    <string name="forked">Ответвление создано</string>
-    <string name="forked_from">Ответвление создано с</string>
+    <string name="fork">Создать Форк</string>
+    <string name="fork_tag">Создать Форк</string>
+    <string name="forked">Форк создан</string>
+    <string name="forked_from">Форк создан с</string>
     <string name="wrap_lines">Переносить строки</string>
     <string name="refresh">Обновить</string>
 
     <string name="success_copied">Скопировано</string>
 
-    <string name="stargazers">Поклонники</string>
-    <string name="forks">Ответвления</string>
+    <string name="stargazers">Звёзды</string>
+    <string name="forks">Форки</string>
     <string name="watchers">Наблюдатели</string>
     <string name="readme">ПРОЧИТАЙМЕНЯ</string>
     <string name="no_readme">ПРОЧИТАЙМЕНЯ отсутствует</string>
@@ -253,14 +253,14 @@
     <string name="markdown_editor">Использовать редактор резметки</string>
 
     <string name="created_at">Создано</string>
-    <string name="forked_at">Ответвлено</string>
+    <string name="forked_at">Форк создан:</string>
     <string name="latest_update">Послденне обновление</string>
-    <string name="latest_commit">Последняя правка</string>
-    <string name="issue_title_null_tip">Название проблемы не может быть пустым.</string>
-    <string name="edit_issue">Редактировать проблему</string>
-    <string name="create_issue">Создать проблему</string>
-    <string name="edit_issue_success">Проблема отредактирована успешно</string>
-    <string name="create_issue_success">Проблема создана успешно</string>
+    <string name="latest_commit">Последние коммиты</string>
+    <string name="issue_title_null_tip">Название задачи не может быть пустым.</string>
+    <string name="edit_issue">Редактировать задачу</string>
+    <string name="create_issue">Создать задачу</string>
+    <string name="edit_issue_success">Задача отредактирована успешно</string>
+    <string name="create_issue_success">Задача создана успешно</string>
 
     <string name="no_commits">Нет правок</string>
     <string name="committed">Правлено</string>
