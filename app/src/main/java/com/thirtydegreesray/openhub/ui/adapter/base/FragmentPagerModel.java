@@ -12,6 +12,7 @@ import com.thirtydegreesray.openhub.mvp.model.Repository;
 import com.thirtydegreesray.openhub.mvp.model.SearchModel;
 import com.thirtydegreesray.openhub.mvp.model.User;
 import com.thirtydegreesray.openhub.mvp.model.filter.TrendingSince;
+import com.thirtydegreesray.openhub.ui.fragment.ActionsFragment;
 import com.thirtydegreesray.openhub.ui.fragment.ActivityFragment;
 import com.thirtydegreesray.openhub.ui.fragment.CommitsFragment;
 import com.thirtydegreesray.openhub.ui.fragment.IssuesFragment;
@@ -66,7 +67,11 @@ public class FragmentPagerModel {
                 new FragmentPagerModel(context.getString(R.string.activity),
                         getFragment(fragments, 3,
                                 () -> ActivityFragment.create(ActivityFragment.ActivityType.Repository,
-                                repository.getOwner().getLogin(), repository.getName())))
+                                repository.getOwner().getLogin(), repository.getName()))),
+                new FragmentPagerModel(context.getString(R.string.actions),
+                        getFragment(fragments, 4,
+                                () -> ActionsFragment.create(repository.getOwner().getLogin(),
+                                repository.getName())))
         ));
     }
 
