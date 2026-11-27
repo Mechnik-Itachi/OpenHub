@@ -81,6 +81,7 @@ public class RepositoryActivity extends PagerActivity<RepositoryPresenter>
     @BindView(R.id.loader) ProgressBar loader;
     @BindView(R.id.desc) TextView desc;
     @BindView(R.id.info) TextView info;
+    @BindView(R.id.toolbar_title) TextView toolbarTitle;
 
     @Override
     protected void setupActivityComponent(AppComponent appComponent) {
@@ -125,7 +126,9 @@ public class RepositoryActivity extends PagerActivity<RepositoryPresenter>
         toolbar.setTitleTextAppearance(getActivity(), R.style.Toolbar_TitleText);
         toolbar.setSubtitleTextAppearance(getActivity(), R.style.Toolbar_Subtitle);
         setToolbarBackEnable();
-        setToolbarTitle(mPresenter.getRepoName());
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        toolbarTitle.setText(mPresenter.getRepoName());
+        toolbarTitle.setSelected(true);
     }
 
     @Override
