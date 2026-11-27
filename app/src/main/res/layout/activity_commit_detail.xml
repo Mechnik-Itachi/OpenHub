@@ -125,6 +125,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
+                app:contentInsetStartWithNavigation="0dp"
                 app:layout_collapseMode="pin"
                 app:popupTheme="?popup_theme">
 
@@ -132,6 +133,8 @@
                     android:id="@+id/toolbar_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_x_large"
+                    android:layout_marginStart="@dimen/spacing_small"
                     android:singleLine="true"
                     android:ellipsize="end"
                     android:textAppearance="@style/Toolbar.TitleText"/>
