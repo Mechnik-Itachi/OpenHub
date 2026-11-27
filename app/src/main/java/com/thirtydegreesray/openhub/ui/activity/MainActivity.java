@@ -166,6 +166,7 @@ public class MainActivity extends BaseDrawerActivity<MainPresenter>
         navViewStart.setCheckedItem(selectedPage);
 
         ImageView avatar = navViewStart.getHeaderView(0).findViewById(R.id.avatar);
+        ImageView avatarBg = navViewStart.getHeaderView(0).findViewById(R.id.avatar_bg);
         TextView name = navViewStart.getHeaderView(0).findViewById(R.id.name);
         TextView mail = navViewStart.getHeaderView(0).findViewById(R.id.mail);
 
@@ -183,6 +184,10 @@ public class MainActivity extends BaseDrawerActivity<MainPresenter>
                 .load(loginUser.getAvatarUrl())
                 .onlyRetrieveFromCache(!PrefUtils.isLoadImageEnable())
                 .into(avatar);
+        GlideApp.with(getActivity())
+                .load(loginUser.getAvatarUrl())
+                .onlyRetrieveFromCache(!PrefUtils.isLoadImageEnable())
+                .into(avatarBg);
         name.setText(StringUtils.isBlank(loginUser.getName()) ? loginUser.getLogin() : loginUser.getName());
         String joinTime = getString(R.string.joined_at).concat(" ")
                 .concat(StringUtils.getDateStr(loginUser.getCreatedAt()));
