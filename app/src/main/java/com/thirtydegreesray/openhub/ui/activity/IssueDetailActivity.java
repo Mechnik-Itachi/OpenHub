@@ -93,6 +93,7 @@ public class IssueDetailActivity extends BaseActivity<IssueDetailPresenter>
     @BindView(R.id.comment_bn) ZoomAbleFloatingActionButton commentBn;
     @BindView(R.id.edit_bn) FloatingActionButton editBn;
     @BindView(R.id.loader) ProgressBar loader;
+    @BindView(R.id.toolbar_title) TextView toolbarTitle;
 
     private IssueTimelineFragment issueTimelineFragment;
 
@@ -118,7 +119,9 @@ public class IssueDetailActivity extends BaseActivity<IssueDetailPresenter>
     protected void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
         setToolbarBackEnable();
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         setToolbarTitle(getString(R.string.issue));
+        toolbarTitle.setText(getString(R.string.issue));
         commentBn.setVisibility(View.GONE);
     }
 
@@ -168,6 +171,7 @@ public class IssueDetailActivity extends BaseActivity<IssueDetailPresenter>
     @Override
     public void showIssue(final Issue issue) {
         setToolbarTitle(getString(R.string.issue).concat(" #").concat(String.valueOf(issue.getNumber())));
+            toolbarTitle.setText(getString(R.string.issue).concat(" #").concat(String.valueOf(issue.getNumber())));
         GlideApp.with(getActivity())
                 .load(issue.getUser().getAvatarUrl())
                 .onlyRetrieveFromCache(!PrefUtils.isLoadImageEnable())
