@@ -22,7 +22,8 @@ import com.thirtydegreesray.openhub.inject.module.FragmentModule;
 import com.thirtydegreesray.openhub.mvp.contract.IRepoInfoContract;
 import com.thirtydegreesray.openhub.mvp.model.Branch;
 import com.thirtydegreesray.openhub.mvp.model.Repository;
-import com.thirtydegreesray.openhub.mvp.presenter.RepoInfoPresenter;
+import com.thirtydegreesray.openhub.mvp.model.RepositoryPermissions;
+import com.thirtydegreesray.openhub.mvp.presenter.RepoInfoPresenter
 import com.thirtydegreesray.openhub.ui.activity.IssuesActivity;
 import com.thirtydegreesray.openhub.ui.activity.ProfileActivity;
 import com.thirtydegreesray.openhub.ui.activity.RepoListActivity;
@@ -206,6 +207,11 @@ public class RepoInfoFragment extends BaseFragment<RepoInfoPresenter>
                 RepositoryActivity.show(getActivity(), mPresenter.getRepository().getParent());
                 break;
         }
+    }
+
+    private boolean canViewStargazers() {
+            RepositoryPermissions p = mPresenter.getRepository().getPermissions();
+            return p != null && (p.isAdmin() || p.isPush());
     }
 
     @Override
