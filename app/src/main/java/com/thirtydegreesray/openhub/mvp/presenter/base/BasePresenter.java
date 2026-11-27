@@ -291,7 +291,7 @@ public abstract class BasePresenter<V extends IBaseContract.View> implements IBa
                     }
                     httpObserver.onSuccess(response);
                 } else if(response.getOriResponse().code() == 404){
-                    mView.showErrorToast(response.getOriResponse().request().url().toString());
+                    mView.showErrorToast(response.getOriResponse().raw().request().url().toString());
                     onError(new HttpPageNoFoundError());
                 } else if(response.getOriResponse().code() == 504){
                     onError(new HttpError(HttpErrorCode.NO_CACHE_AND_NETWORK));
