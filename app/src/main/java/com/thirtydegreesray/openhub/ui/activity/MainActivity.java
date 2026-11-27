@@ -175,6 +175,10 @@ public class MainActivity extends BaseDrawerActivity<MainPresenter>
         });
 
         User loginUser = AppData.INSTANCE.getLoggedUser();
+        avatar.setOnClickListener(v -> {
+            closeDrawer();
+            updateFragmentByNavId(R.id.nav_profile);
+        });
         GlideApp.with(getActivity())
                 .load(loginUser.getAvatarUrl())
                 .onlyRetrieveFromCache(!PrefUtils.isLoadImageEnable())
