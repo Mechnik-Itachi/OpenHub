@@ -180,6 +180,11 @@ public class MainActivity extends BaseDrawerActivity<MainPresenter>
             closeDrawer();
             updateFragmentByNavId(R.id.nav_profile);
         });
+            ImageView notificationsBn = navViewStart.getHeaderView(0).findViewById(R.id.notifications_bn);
+            notificationsBn.setOnClickListener(v -> {
+                closeDrawer();
+                NotificationsActivity.show(getActivity());
+        });
         GlideApp.with(getActivity())
                 .load(loginUser.getAvatarUrl())
                 .onlyRetrieveFromCache(!PrefUtils.isLoadImageEnable())
