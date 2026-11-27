@@ -477,4 +477,13 @@
     <string name="add_account">Add account</string>
     <string name="delete_label_warning">Confirm to delete this label?</string>
 
+    <string name="actions">Actions</string>
+    <string name="no_workflow_runs">No workflow runs</string>
+    <string name="workflow_status_success">Success</string>
+    <string name="workflow_status_failure">Failed</string>
+    <string name="workflow_status_cancelled">Cancelled</string>
+    <string name="workflow_status_skipped">Skipped</string>
+    <string name="workflow_status_in_progress">In progress</string>
+    <string name="workflow_status_queued">Queued</string>
+
 </resources>
