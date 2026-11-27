@@ -95,9 +95,23 @@ public class AppOpener {
         if(intent != null){
             context.startActivity(intent);
         } else {
-            Toasty.warning(context, context.getString(R.string.no_browser_clients), Toast.LENGTH_LONG).show();
+            openInDefaultBrowser(context, uri);
         }
     }
+
+    private static void openInDefaultBrowser(Context context, Uri uri) {
+        try {
+            Intent intent = Intent.makeMainSelectorActivity(
+                    Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER);
+            intent.setData(uri);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            Toasty.warning(context, context.getString(R.string.no_browser_clients),
+                    Toast.LENGTH_LONG).show();
+        }
+                }
+    
 
     public static void startDownload(@NonNull Context context, @NonNull String url, String fileName) {
         if(PrefUtils.isSystemDownloader()){
