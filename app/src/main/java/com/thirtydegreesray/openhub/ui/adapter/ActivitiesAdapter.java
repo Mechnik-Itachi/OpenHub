@@ -29,6 +29,7 @@ import com.thirtydegreesray.openhub.util.GitHubHelper;
 import com.thirtydegreesray.openhub.util.PrefUtils;
 import com.thirtydegreesray.openhub.util.StringUtils;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 
 import javax.inject.Inject;
@@ -97,8 +98,9 @@ public class ActivitiesAdapter extends BaseAdapter<ActivitiesAdapter.ViewHolder,
             String actionStr = null;
             SpannableStringBuilder descSpan = null;
             String fullName = model.getRepo() != null ? model.getRepo().getFullName() : null;
-            EventPayload.RefType refType = model.getPayload().getRefType();
-            String action = model.getPayload() != null ? model.getPayload().getAction() : null;
+            EventPayload payload = model.getPayload();
+            EventPayload.RefType refType = payload != null ? payload.getRefType() : null;
+            String action = payload != null ? payload.getAction() : null;
 
             switch (model.getType()) {
                 case CommitCommentEvent:
@@ -202,12 +204,13 @@ public class ActivitiesAdapter extends BaseAdapter<ActivitiesAdapter.ViewHolder,
                     actionStr = String.format(getString(R.string.push_to), branch, fullName);
 
                     descSpan = new SpannableStringBuilder("");
-                    int count = model.getPayload().getCommits().size();
+                    ArrayList<PushEventCommit> commits = payload != null ? payload.getCommits() : null;
+                    int count = commits == null ? 0 : commits.size();
                     int maxLines = 4;
                     int max = count > maxLines ? maxLines - 1 : count;
 
                     for (int i = 0; i < max; i++) {
-                        PushEventCommit commit = model.getPayload().getCommits().get(i);
+                        PushEventCommit commit = commits.get(i);
                         if (i != 0) {
                             descSpan.append("\n");
                         }
@@ -226,6 +229,9 @@ public class ActivitiesAdapter extends BaseAdapter<ActivitiesAdapter.ViewHolder,
                     }
                     if(count > maxLines){
                         descSpan.append("\n").append("...");
+                    }
+                    if(count == 0){
+                        descSpan = null;
                     }
                     break;
                 case ReleaseEvent:
@@ -336,5 +342,4 @@ public class ActivitiesAdapter extends BaseAdapter<ActivitiesAdapter.ViewHolder,
         }
 
     }
-
 }
